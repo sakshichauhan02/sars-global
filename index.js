@@ -374,8 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const dynamicTextEl = document.getElementById('dynamic-typing-text');
   if (dynamicTextEl) {
     const roles = [
-      'Frontend Engineer',
       'Backend Engineer',
+      'Frontend Engineer',
       'AI Engineer',
       'Data Engineer',
       'Full Stack Engineer'
@@ -432,12 +432,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let candidateIndex = 0;
 
-    // Helper to generate card node
-    const createCardNode = (candidate) => {
+    const pushFeedCard = () => {
+      const candidate = candidatesList[candidateIndex];
+
+      // Create card node
       const card = document.createElement('div');
       card.className = 'matched-feed-card';
       card.innerHTML = `
-        <div class="feed-card-badge">CANDIDATE MATCHED</div>
+        <div class="feed-card-badge">Candidate matched</div>
         <div class="feed-card-body">
           <img src="${candidate.avatar}" class="feed-card-avatar" alt="${candidate.name}">
           <div class="feed-card-info">
@@ -446,30 +448,16 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
       `;
-      return card;
-    };
 
-    // Initialize with exactly 3 active candidate cards immediately
-    for (let i = 0; i < 3; i++) {
-      const card = createCardNode(candidatesList[candidateIndex]);
-      feedContainer.appendChild(card);
-      card.classList.add('slide-in');
-      candidateIndex = (candidateIndex + 1) % candidatesList.length;
-    }
-
-    const pushFeedCard = () => {
-      const candidate = candidatesList[candidateIndex];
-      const card = createCardNode(candidate);
-
-      // Append new card at the bottom
+      // Prepend to display reverse chronological order where new pushes older ones up
       feedContainer.appendChild(card);
 
-      // Slide in
+      // Slide in next frame
       requestAnimationFrame(() => {
         card.classList.add('slide-in');
       });
 
-      // Keep stack count at exactly 3 elements
+      // Maintain max count of 3 cards in view feed
       const activeCards = feedContainer.querySelectorAll('.matched-feed-card');
       if (activeCards.length > 3) {
         const oldestCard = activeCards[0];
@@ -484,7 +472,8 @@ document.addEventListener('DOMContentLoaded', () => {
       candidateIndex = (candidateIndex + 1) % candidatesList.length;
     };
 
-    // Cycle candidates feed stack every 3.5 seconds
+    // Cycle candidates feed stack
+    setTimeout(pushFeedCard, 1000);
     setInterval(pushFeedCard, 3500);
   }
 });

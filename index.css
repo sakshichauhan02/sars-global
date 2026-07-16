@@ -710,7 +710,7 @@ section {
 .floor-node .node-icon {
   width: 22px;
   height: 22px;
-  color: var(--color-blue-electric);
+  color: #6366F1;
 }
 
 .floor-node .node-text {
@@ -776,20 +776,19 @@ section {
   50% { transform: translate(-50%, -20px); }
 }
 
-/* Feed-style Candidate Matched stack positioned on Middle Right */
+/* Feed-style Candidate Matched stack on bottom right */
 .matched-feed-container {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
   display: flex;
   flex-direction: column-reverse;
   gap: 12px;
-  pointer-events: auto;
-  width: 300px;
+  pointer-events: none;
   max-height: 480px;
   overflow: visible;
+  width: 310px;
 }
 
 .matched-feed-card {
