@@ -56,45 +56,88 @@
 
   <main>
     <!-- 4.2 Hero Section -->
+    <!-- 4.2 Hero Section -->
     <section class="hero-section" id="hero">
       <div class="hero-bg-glow"></div>
-      <div class="hero-bg-network">
-        <!-- Abstract network/orbit SVG pattern -->
-        <svg width="100%" height="100%" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="network-svg">
-          <circle cx="200" cy="150" r="4" fill="#2F6FED" opacity="0.6"/>
-          <circle cx="550" cy="120" r="3" fill="#8A8F98" opacity="0.4"/>
-          <circle cx="450" cy="400" r="5" fill="#2F6FED" opacity="0.8"/>
-          <circle cx="650" cy="350" r="4" fill="#8A8F98" opacity="0.5"/>
-          <circle cx="150" cy="450" r="3" fill="#2F6FED" opacity="0.5"/>
-          <path d="M 200 150 L 550 120" stroke="rgba(138, 143, 152, 0.15)" stroke-width="1"/>
-          <path d="M 550 120 L 450 400" stroke="rgba(47, 111, 237, 0.15)" stroke-width="1.5"/>
-          <path d="M 450 400 L 650 350" stroke="rgba(138, 143, 152, 0.15)" stroke-width="1"/>
-          <path d="M 150 450 L 450 400" stroke="rgba(47, 111, 237, 0.2)" stroke-width="1.5"/>
-          <path d="M 200 150 L 450 400" stroke="rgba(47, 111, 237, 0.1)" stroke-width="1"/>
-          <!-- Orbit loops -->
-          <ellipse cx="400" cy="300" rx="350" ry="180" stroke="rgba(47, 111, 237, 0.08)" stroke-width="1.5" transform="rotate(-15, 400, 300)"/>
-          <ellipse cx="400" cy="300" rx="280" ry="120" stroke="rgba(138, 143, 152, 0.12)" stroke-width="1" transform="rotate(20, 400, 300)"/>
-        </svg>
-      </div>
-
+      <div class="hero-grid-bg"></div>
       <div class="content-container">
-        <div class="hero-content">
-          <div class="trust-badge" id="trust-badge">
-            <span class="badge-icon">★</span>
-            <span class="badge-text">Rated 4.9/5 by global partners</span>
+        <div class="hero-layout-grid">
+          <!-- Left Column: Content -->
+          <div class="hero-content">
+            <div class="trust-badge" id="trust-badge">
+              <span class="badge-icon">★</span>
+              <span class="badge-text">Rated 4.9/5 by global partners</span>
+            </div>
+            <h1 class="hero-title animate-reveal">
+              Global talent and technology solutions, <span class="gradient-text">engineered for trust.</span>
+            </h1>
+            <p class="hero-subtitle animate-reveal-delay-1">
+              Connecting exceptional people with ambitious companies, while securing the systems that power them.
+            </p>
+            <p class="hero-description animate-reveal-delay-2">
+              SARS Global is a full-spectrum partner for talent acquisition, technology consulting, and software security — helping organisations hire faster, build smarter, and operate safely.
+            </p>
+            <div class="hero-actions animate-reveal-delay-3">
+              <a href="#contact" class="btn btn-primary">Schedule a Strategy Call <span class="arrow-icon">→</span></a>
+              <a href="#careers" class="btn btn-outline-hero">Explore Open Roles</a>
+            </div>
           </div>
-          <h1 class="hero-title animate-reveal">
-            Global talent and technology solutions, <span class="gradient-text">engineered for trust.</span>
-          </h1>
-          <p class="hero-subtitle animate-reveal-delay-1">
-            Connecting exceptional people with ambitious companies, while securing the systems that power them.
-          </p>
-          <p class="hero-description animate-reveal-delay-2">
-            SARS Global is a full-spectrum partner for talent acquisition, technology consulting, and software security — helping organisations hire faster, build smarter, and operate safely.
-          </p>
-          <div class="hero-actions animate-reveal-delay-3">
-            <a href="#contact" class="btn btn-primary">Schedule a Strategy Call <span class="arrow-icon">→</span></a>
-            <a href="#careers" class="btn btn-outline">Explore Open Roles</a>
+
+          <!-- Right Column: Animated Radar/Shield Graphic -->
+          <div class="hero-visual animate-reveal-delay-2">
+            <div class="radar-container">
+              <div class="radar-glow"></div>
+              <svg class="radar-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid Lines -->
+                <line x1="250" y1="0" x2="250" y2="500" stroke="rgba(47, 111, 237, 0.08)" stroke-width="1" />
+                <line x1="0" y1="250" x2="500" y2="250" stroke="rgba(47, 111, 237, 0.08)" stroke-width="1" />
+                
+                <!-- Concentric Radar Rings -->
+                <circle cx="250" cy="250" r="230" stroke="rgba(138, 143, 152, 0.12)" stroke-width="1" />
+                <circle cx="250" cy="250" r="180" stroke="rgba(47, 111, 237, 0.15)" stroke-width="1" stroke-dasharray="8 8" class="radar-ring-dashed-ccw" />
+                <circle cx="250" cy="250" r="130" stroke="rgba(138, 143, 152, 0.18)" stroke-width="1" />
+                <circle cx="250" cy="250" r="80" stroke="rgba(47, 111, 237, 0.25)" stroke-width="1.5" stroke-dasharray="12 4" class="radar-ring-dashed-cw" />
+                
+                <!-- Radar Scanner Line -->
+                <g class="radar-scanner">
+                  <polygon points="250,250 480,250 460,200 430,160" fill="url(#scanner-gradient)" opacity="0.15" />
+                  <line x1="250" y1="250" x2="480" y2="250" stroke="var(--color-blue-electric)" stroke-width="1.5" stroke-linecap="round" />
+                </g>
+
+                <!-- Floating Data/Security Nodes -->
+                <g class="radar-nodes">
+                  <!-- Node 1 -->
+                  <line x1="250" y1="250" x2="380" y2="150" stroke="rgba(47, 111, 237, 0.15)" stroke-width="1" />
+                  <circle cx="380" cy="150" r="5" fill="var(--color-blue-electric)" class="radar-node-pulse-1" />
+                  <circle cx="380" cy="150" r="12" stroke="rgba(47, 111, 237, 0.4)" stroke-width="1" class="radar-node-glow-1" />
+
+                  <!-- Node 2 -->
+                  <line x1="250" y1="250" x2="140" y2="180" stroke="rgba(138, 143, 152, 0.2)" stroke-width="1" />
+                  <circle cx="140" cy="180" r="4" fill="var(--color-gray-metal-light)" class="radar-node-pulse-2" />
+
+                  <!-- Node 3 -->
+                  <line x1="250" y1="250" x2="190" y2="350" stroke="rgba(47, 111, 237, 0.15)" stroke-width="1" />
+                  <circle cx="190" cy="350" r="5" fill="var(--color-blue-electric)" class="radar-node-pulse-3" />
+                  <circle cx="190" cy="350" r="12" stroke="rgba(47, 111, 237, 0.4)" stroke-width="1" class="radar-node-glow-3" />
+
+                  <!-- Node 4 -->
+                  <line x1="250" y1="250" x2="340" y2="330" stroke="rgba(138, 143, 152, 0.2)" stroke-width="1" />
+                  <circle cx="340" cy="330" r="4" fill="var(--color-gray-metal-light)" class="radar-node-pulse-4" />
+                </g>
+
+                <!-- Core Shield / Node -->
+                <circle cx="250" cy="250" r="40" fill="#0A0F24" stroke="var(--color-blue-electric)" stroke-width="2" class="radar-core-glow" />
+                <path d="M250 238 L262 243.5 V255.5 C262 263.5 250 268 250 268 C250 268 238 263.5 238 255.5 V243.5 L250 238 Z" fill="rgba(47, 111, 237, 0.15)" stroke="var(--color-blue-electric)" stroke-width="1.5" stroke-linejoin="round" />
+                
+                <!-- Definitions -->
+                <defs>
+                  <radialGradient id="scanner-gradient" cx="250" cy="250" r="230" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#2F6FED" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#2F6FED" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
