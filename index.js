@@ -383,11 +383,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleIndex = 0;
 
     const cycleRole = () => {
+      // Fade out rapidly
       dynamicTextEl.style.opacity = 0;
 
       setTimeout(() => {
         roleIndex = (roleIndex + 1) % roles.length;
         dynamicTextEl.textContent = roles[roleIndex];
+        // Fade back in
         dynamicTextEl.style.opacity = 1;
       }, 150);
     };
@@ -396,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     11. Matched Candidate Card Stacker Feed Loop (Exactly 3 cards stack)
+     11. Matched Candidate Card Stacker Feed Loop
      ========================================================================== */
   const feedContainer = document.getElementById('matched-feed-container');
   if (feedContainer) {
@@ -407,29 +409,30 @@ document.addEventListener('DOMContentLoaded', () => {
         avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Elena Rostova',
-        role: 'AI Engineer',
+        name: 'Sarah Jenkins',
+        role: 'AI Scientist',
         avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Marcus Chen',
-        role: 'Frontend Engineer',
+        name: 'David Mercer',
+        role: 'Backend Developer',
         avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Alice Miller',
-        role: 'Backend Engineer',
+        name: 'Priya Nair',
+        role: 'Product Manager',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'David Kim',
-        role: 'Data Engineer',
+        name: 'Alex Rodriguez',
+        role: 'Security Architect',
         avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=80&h=80&q=80'
       }
     ];
 
     let candidateIndex = 0;
 
+    // Helper to generate card node
     const createCardNode = (candidate) => {
       const card = document.createElement('div');
       card.className = 'matched-feed-card';
@@ -446,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return card;
     };
 
-    // Pre-populate with 3 initial cards
+    // Initialize with exactly 3 active candidate cards immediately
     for (let i = 0; i < 3; i++) {
       const card = createCardNode(candidatesList[candidateIndex]);
       feedContainer.appendChild(card);
@@ -458,29 +461,30 @@ document.addEventListener('DOMContentLoaded', () => {
       const candidate = candidatesList[candidateIndex];
       const card = createCardNode(candidate);
 
-      // Prepend so that the new card enters at the bottom, pushing older cards up
+      // Append new card at the bottom
       feedContainer.appendChild(card);
 
+      // Slide in
       requestAnimationFrame(() => {
         card.classList.add('slide-in');
       });
 
-      // Maintain exactly 3 active cards in the stack feed: remove the top one
+      // Keep stack count at exactly 3 elements
       const activeCards = feedContainer.querySelectorAll('.matched-feed-card');
       if (activeCards.length > 3) {
-        const topCard = activeCards[0];
-        topCard.style.transform = 'translateY(-120px) scale(0.85)';
-        topCard.style.opacity = '0';
+        const oldestCard = activeCards[0];
+        oldestCard.style.transform = 'translateY(-120px) scale(0.85)';
+        oldestCard.style.opacity = '0';
         
         setTimeout(() => {
-          topCard.remove();
+          oldestCard.remove();
         }, 600);
       }
 
       candidateIndex = (candidateIndex + 1) % candidatesList.length;
     };
 
-    // Cycle candidate card every 3.5 seconds
+    // Cycle candidates feed stack every 3.5 seconds
     setInterval(pushFeedCard, 3500);
   }
 });
