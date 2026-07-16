@@ -367,4 +367,124 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ==========================================================================
+     10. Dynamic Text Typing & Deleting Cycler
+     ========================================================================== */
+  const dynamicTextEl = document.getElementById('dynamic-typing-text');
+  if (dynamicTextEl) {
+    const roles = [
+      'Backend Engineer',
+      'Frontend Engineer',
+      'AI Engineer',
+      'Data Engineer',
+      'Full Stack Engineer'
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    const typeRole = () => {
+      const currentRole = roles[roleIndex];
+      
+      if (isDeleting) {
+        // Deleting characters
+        dynamicTextEl.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50; // faster deletion
+      } else {
+        // Typing characters
+        dynamicTextEl.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 120; // standard typing speed
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        // Pausing after typing full word
+        isDeleting = true;
+        typingSpeed = 2000; // pause duration
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        // Move to the next role
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingSpeed = 500; // brief pause before next word
+      }
+
+      setTimeout(typeRole, typingSpeed);
+    };
+
+    // Initialize typing loop
+    setTimeout(typeRole, 1000);
+  }
+
+  /* ==========================================================================
+     11. Matched Candidate Card Slider Loop
+     ========================================================================== */
+  const matchedCardNode = document.getElementById('matched-card-node');
+  const matchedAvatar = document.getElementById('matched-avatar');
+  const matchedName = document.getElementById('matched-name');
+  const matchedRole = document.getElementById('matched-role');
+
+  if (matchedCardNode && matchedAvatar && matchedName && matchedRole) {
+    const candidates = [
+      {
+        name: 'Alice Miller',
+        role: 'Backend Engineer',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80'
+      },
+      {
+        name: 'Marcus Chen',
+        role: 'Frontend Engineer',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80'
+      },
+      {
+        name: 'Elena Rostova',
+        role: 'AI Engineer',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80'
+      },
+      {
+        name: 'David Kim',
+        role: 'Data Engineer',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80'
+      },
+      {
+        name: 'Sophia Martinez',
+        role: 'Full Stack Engineer',
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=80&h=80&q=80'
+      }
+    ];
+
+    let candidateIndex = 0;
+
+    const slideCandidateCard = () => {
+      const activeCandidate = candidates[candidateIndex];
+
+      // Update card contents
+      matchedAvatar.src = activeCandidate.avatar;
+      matchedName.textContent = activeCandidate.name;
+      matchedRole.textContent = activeCandidate.role;
+
+      // Slide in
+      matchedCardNode.classList.add('slide-in');
+
+      // Slide out after 4 seconds
+      setTimeout(() => {
+        matchedCardNode.classList.remove('slide-in');
+        
+        // Setup next candidate after exit transition (600ms)
+        setTimeout(() => {
+          candidateIndex = (candidateIndex + 1) % candidates.length;
+        }, 600);
+
+      }, 4000);
+    };
+
+    // Cycle candidate card every 6 seconds
+    setInterval(slideCandidateCard, 6000);
+    
+    // Trigger first slide-in after 2 seconds
+    setTimeout(slideCandidateCard, 2000);
+  }
 });
+

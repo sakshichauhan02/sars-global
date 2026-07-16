@@ -61,64 +61,125 @@
       <div class="hero-bg-glow"></div>
       <div class="hero-grid-bg"></div>
       
-      <!-- Central Background Radar Circles (spans across the sides) -->
-      <div class="hero-bg-circles-container">
-        <svg class="hero-bg-circles-svg" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Concentric Rings -->
-          <circle cx="500" cy="500" r="100" stroke="rgba(47, 111, 237, 0.25)" stroke-width="1.5" />
-          <circle cx="500" cy="500" r="200" stroke="rgba(138, 143, 152, 0.15)" stroke-width="1" stroke-dasharray="6 6" class="radar-ring-dashed-cw" />
-          <circle cx="500" cy="500" r="300" stroke="rgba(47, 111, 237, 0.15)" stroke-width="1" />
-          <circle cx="500" cy="500" r="400" stroke="rgba(138, 143, 152, 0.1)" stroke-width="1.5" stroke-dasharray="16 8" class="radar-ring-dashed-ccw" />
-          <circle cx="500" cy="500" r="480" stroke="rgba(47, 111, 237, 0.08)" stroke-width="1" />
-          
-          <!-- Axis crosshair lines -->
-          <line x1="500" y1="0" x2="500" y2="1000" stroke="rgba(47, 111, 237, 0.05)" stroke-width="1" />
-          <line x1="0" y1="500" x2="1000" y2="500" stroke="rgba(47, 111, 237, 0.05)" stroke-width="1" />
-          
-          <!-- Scanning Sweep -->
-          <g class="radar-scanner">
-            <polygon points="500,500 980,500 940,400 880,320" fill="url(#scanner-glow)" opacity="0.12" />
-            <line x1="500" y1="500" x2="980" y2="500" stroke="var(--color-blue-electric)" stroke-width="1.5" opacity="0.6" />
-          </g>
-
-          <!-- Floating Glowing Nodes (visible on left and right sides) -->
-          <g class="radar-nodes">
-            <!-- Left Side Nodes -->
-            <circle cx="150" cy="350" r="5" fill="var(--color-blue-electric)" class="radar-node-pulse-1" />
-            <circle cx="150" cy="350" r="14" stroke="rgba(47, 111, 237, 0.3)" stroke-width="1" class="radar-node-glow-1" />
-            
-            <circle cx="220" cy="680" r="4" fill="var(--color-gray-metal-light)" class="radar-node-pulse-2" />
-            
-            <!-- Right Side Nodes -->
-            <circle cx="850" cy="650" r="5" fill="var(--color-blue-electric)" class="radar-node-pulse-3" />
-            <circle cx="850" cy="650" r="14" stroke="rgba(47, 111, 237, 0.3)" stroke-width="1" class="radar-node-glow-3" />
-
-            <circle cx="780" cy="320" r="4" fill="var(--color-gray-metal-light)" class="radar-node-pulse-4" />
-          </g>
-
-          <defs>
-            <radialGradient id="scanner-glow" cx="500" cy="500" r="480" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#2F6FED" stop-opacity="1" />
-              <stop offset="100%" stop-color="#2F6FED" stop-opacity="0" />
-            </radialGradient>
-          </defs>
+      <!-- Subtle branching grid lines and tech bubbles -->
+      <div class="hero-branching-grid">
+        <svg class="branching-svg" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 150 120 L 250 200 L 250 320 M 250 200 L 380 150" stroke="rgba(138, 143, 152, 0.12)" stroke-width="1.5" stroke-linecap="round" />
+          <path d="M 1050 120 L 950 200 L 950 320 M 950 200 L 820 150" stroke="rgba(138, 143, 152, 0.12)" stroke-width="1.5" stroke-linecap="round" />
         </svg>
+        
+        <!-- AWS node -->
+        <div class="tech-bubble aws-bubble" title="AWS">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tech-icon">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+          </svg>
+        </div>
+        
+        <!-- GCP node -->
+        <div class="tech-bubble gcp-bubble" title="Google Cloud">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tech-icon">
+            <rect x="2" y="2" width="20" height="8" rx="2" />
+            <rect x="2" y="14" width="20" height="8" rx="2" />
+          </svg>
+        </div>
+        
+        <!-- Vue node -->
+        <div class="tech-bubble vue-bubble" title="Vue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="tech-icon">
+            <path d="M12 21L20 5H15L12 11L9 5H4L12 21Z" />
+          </svg>
+        </div>
+        
+        <!-- Angular node -->
+        <div class="tech-bubble angular-bubble" title="Angular">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tech-icon">
+            <path d="M12 2L2 5l1.5 12 8.5 5 8.5-5L22 5L12 2z M12 6l5 9.5h-2.5L12 10.5l-2.5 5H7L12 6z" />
+          </svg>
+        </div>
       </div>
 
       <div class="content-container">
         <div class="hero-content-centered">
           <h1 class="hero-title animate-reveal">
-            Global talent and technology solutions, <br><span class="gradient-text">engineered for trust.</span>
+            Find your next
+            <span class="avatar-stack">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 1">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 2">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 3">
+            </span>
+            top 1% <br><span class="dynamic-typing-text" id="dynamic-typing-text">Backend Engineer</span><span class="typing-cursor">|</span>
           </h1>
           <p class="hero-subtitle animate-reveal-delay-1">
-            Connecting exceptional people with ambitious companies, while securing the systems that power them.
+            Hire engineers the way you ship software — fast, tested, and ready to deploy.
           </p>
-          <p class="hero-description animate-reveal-delay-2">
-            SARS Global is a full-spectrum partner for talent acquisition, technology consulting, and software security — helping organisations hire faster, build smarter, and operate safely.
-          </p>
+
+          <!-- Centerpiece: Glowing 3D purple 4-point star hovering over isometric podium -->
+          <div class="hero-centerpiece animate-reveal-delay-2">
+            <div class="podium-wrapper">
+              <!-- Isometric Podium SVG -->
+              <svg class="podium-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Top Isometric Face -->
+                <polygon points="100,20 180,60 100,100 20,60" fill="#E2E8F0" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1.5" />
+                <polygon points="100,24 172,60 100,96 28,60" fill="#F8FAFC" />
+                <!-- Front Left Face -->
+                <polygon points="20,60 100,100 100,118 20,78" fill="#CBD5E1" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1" />
+                <!-- Front Right Face -->
+                <polygon points="100,100 180,60 180,78 100,118" fill="#E2E8F0" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1" />
+                <!-- Inner glow accent -->
+                <ellipse cx="100" cy="60" rx="35" ry="18" fill="url(#podium-inner-glow)" opacity="0.4" />
+                <defs>
+                  <radialGradient id="podium-inner-glow" cx="100" cy="60" r="35" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+              </svg>
+              
+              <!-- Glowing 3D 4-point star hovering above -->
+              <div class="star-3d-wrapper">
+                <svg class="star-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Top Face -->
+                  <polygon points="50,10 50,50 65,35" fill="#D8B4FE" />
+                  <polygon points="50,10 50,50 35,35" fill="#A855F7" />
+                  <!-- Bottom Face -->
+                  <polygon points="50,90 50,50 65,65" fill="#7C3AED" />
+                  <polygon points="50,90 50,50 35,65" fill="#9333EA" />
+                  <!-- Right Face -->
+                  <polygon points="90,50 50,50 65,35" fill="#A855F7" />
+                  <polygon points="90,50 50,50 65,65" fill="#7C3AED" />
+                  <!-- Left Face -->
+                  <polygon points="10,50 50,50 35,35" fill="#D8B4FE" />
+                  <polygon points="10,50 50,50 35,65" fill="#9333EA" />
+                  <!-- Outer Glow -->
+                  <circle cx="50" cy="50" r="35" fill="url(#star-glow)" opacity="0.3" pointer-events="none" />
+                  <defs>
+                    <radialGradient id="star-glow" cx="50" cy="50" r="35" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#A855F7" stop-opacity="1" />
+                      <stop offset="100%" stop-color="#A855F7" stop-opacity="0" />
+                    </radialGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+
           <div class="hero-actions animate-reveal-delay-3">
             <a href="#contact" class="btn btn-primary">Schedule a Strategy Call <span class="arrow-icon">→</span></a>
-            <a href="#careers" class="btn btn-outline-hero">Explore Open Roles</a>
+            <a href="#careers" class="btn btn-outline">Explore Open Roles</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sliding Matched Candidate Cards Container (bottom right) -->
+      <div class="matched-cards-widget" id="matched-cards-widget">
+        <div class="matched-card" id="matched-card-node">
+          <div class="matched-avatar-col">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar" class="matched-avatar" id="matched-avatar">
+          </div>
+          <div class="matched-info-col">
+            <div class="matched-status">Candidate matched</div>
+            <div class="matched-name" id="matched-name">Alice Miller</div>
+            <div class="matched-role" id="matched-role">Backend Engineer</div>
           </div>
         </div>
       </div>
