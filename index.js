@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     10. Dynamic Text Typing & Deleting Cycler
+     10. Dynamic Text Instant Swap/Fade Cycler
      ========================================================================== */
   const dynamicTextEl = document.getElementById('dynamic-typing-text');
   if (dynamicTextEl) {
@@ -381,110 +381,100 @@ document.addEventListener('DOMContentLoaded', () => {
       'Full Stack Engineer'
     ];
     let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
 
-    const typeRole = () => {
-      const currentRole = roles[roleIndex];
-      
-      if (isDeleting) {
-        // Deleting characters
-        dynamicTextEl.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50; // faster deletion
-      } else {
-        // Typing characters
-        dynamicTextEl.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 120; // standard typing speed
-      }
+    const cycleRole = () => {
+      // Fade out rapidly
+      dynamicTextEl.style.opacity = 0;
 
-      if (!isDeleting && charIndex === currentRole.length) {
-        // Pausing after typing full word
-        isDeleting = true;
-        typingSpeed = 2000; // pause duration
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        // Move to the next role
+      setTimeout(() => {
         roleIndex = (roleIndex + 1) % roles.length;
-        typingSpeed = 500; // brief pause before next word
-      }
-
-      setTimeout(typeRole, typingSpeed);
+        dynamicTextEl.textContent = roles[roleIndex];
+        // Fade back in
+        dynamicTextEl.style.opacity = 1;
+      }, 150);
     };
 
-    // Initialize typing loop
-    setTimeout(typeRole, 1000);
+    setInterval(cycleRole, 3000);
   }
 
   /* ==========================================================================
-     11. Matched Candidate Card Slider Loop
+     11. Matched Candidate Card Stacker Feed Loop
      ========================================================================== */
-  const matchedCardNode = document.getElementById('matched-card-node');
-  const matchedAvatar = document.getElementById('matched-avatar');
-  const matchedName = document.getElementById('matched-name');
-  const matchedRole = document.getElementById('matched-role');
-
-  if (matchedCardNode && matchedAvatar && matchedName && matchedRole) {
-    const candidates = [
+  const feedContainer = document.getElementById('matched-feed-container');
+  if (feedContainer) {
+    const candidatesList = [
       {
-        name: 'Alice Miller',
-        role: 'Backend Engineer',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80'
-      },
-      {
-        name: 'Marcus Chen',
-        role: 'Frontend Engineer',
+        name: 'Mukul Dhupia',
+        role: 'DevOps Engineer',
         avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Elena Rostova',
-        role: 'AI Engineer',
+        name: 'Sarah Jenkins',
+        role: 'AI Scientist',
         avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'David Kim',
-        role: 'Data Engineer',
+        name: 'David Mercer',
+        role: 'Backend Developer',
         avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Sophia Martinez',
-        role: 'Full Stack Engineer',
-        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=80&h=80&q=80'
+        name: 'Priya Nair',
+        role: 'Product Manager',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80'
+      },
+      {
+        name: 'Alex Rodriguez',
+        role: 'Security Architect',
+        avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=80&h=80&q=80'
       }
     ];
 
     let candidateIndex = 0;
 
-    const slideCandidateCard = () => {
-      const activeCandidate = candidates[candidateIndex];
+    const pushFeedCard = () => {
+      const candidate = candidatesList[candidateIndex];
 
-      // Update card contents
-      matchedAvatar.src = activeCandidate.avatar;
-      matchedName.textContent = activeCandidate.name;
-      matchedRole.textContent = activeCandidate.role;
+      // Create card node
+      const card = document.createElement('div');
+      card.className = 'matched-feed-card';
+      card.innerHTML = `
+        <div class="feed-card-badge">Candidate matched</div>
+        <div class="feed-card-body">
+          <img src="${candidate.avatar}" class="feed-card-avatar" alt="${candidate.name}">
+          <div class="feed-card-info">
+            <div class="feed-card-name">${candidate.name}</div>
+            <div class="feed-card-role">${candidate.role}</div>
+          </div>
+        </div>
+      `;
 
-      // Slide in
-      matchedCardNode.classList.add('slide-in');
+      // Prepend to display reverse chronological order where new pushes older ones up
+      feedContainer.appendChild(card);
 
-      // Slide out after 4 seconds
-      setTimeout(() => {
-        matchedCardNode.classList.remove('slide-in');
+      // Slide in next frame
+      requestAnimationFrame(() => {
+        card.classList.add('slide-in');
+      });
+
+      // Maintain max count of 3 cards in view feed
+      const activeCards = feedContainer.querySelectorAll('.matched-feed-card');
+      if (activeCards.length > 3) {
+        const oldestCard = activeCards[0];
+        oldestCard.style.transform = 'translateY(-120px) scale(0.85)';
+        oldestCard.style.opacity = '0';
         
-        // Setup next candidate after exit transition (600ms)
         setTimeout(() => {
-          candidateIndex = (candidateIndex + 1) % candidates.length;
+          oldestCard.remove();
         }, 600);
+      }
 
-      }, 4000);
+      candidateIndex = (candidateIndex + 1) % candidatesList.length;
     };
 
-    // Cycle candidate card every 6 seconds
-    setInterval(slideCandidateCard, 6000);
-    
-    // Trigger first slide-in after 2 seconds
-    setTimeout(slideCandidateCard, 2000);
+    // Cycle candidates feed stack
+    setTimeout(pushFeedCard, 1000);
+    setInterval(pushFeedCard, 3500);
   }
 });
 

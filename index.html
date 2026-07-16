@@ -18,7 +18,10 @@
   <header class="header" id="nav-header">
     <div class="header-container">
       <a href="#" class="logo-wordmark" id="logo">
-        <span class="logo-sars">SARS</span><span class="logo-global">GLOBAL</span>
+        <svg class="logo-diamond-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="12,2 22,12 12,22 2,12" />
+        </svg>
+        <span class="logo-emb">EMB</span><span class="logo-talent">Talent</span>
       </a>
       <nav class="nav-desktop">
         <a href="#why-us" class="nav-link">Why Us</a>
@@ -29,14 +32,14 @@
         <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#insights" class="nav-link">Insights</a>
       </nav>
-      <div class="header-cta">
-        <a href="#contact" class="btn btn-primary">Talk to Our Team <span class="arrow-icon">→</span></a>
+      <div class="nav-right-group">
+        <a href="#contact" class="btn-book-call">Book a call</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </header>
 
@@ -50,55 +53,18 @@
       <a href="#team" class="mobile-nav-link">Team</a>
       <a href="#pricing" class="mobile-nav-link">Pricing</a>
       <a href="#insights" class="mobile-nav-link">Insights</a>
-      <a href="#contact" class="mobile-nav-link btn-mobile-cta">Talk to Our Team</a>
+      <a href="#contact" class="mobile-nav-link btn-mobile-cta">Book a call</a>
     </nav>
   </div>
 
   <main>
     <!-- 4.2 Hero Section -->
-    <!-- 4.2 Hero Section -->
     <section class="hero-section" id="hero">
       <div class="hero-bg-glow"></div>
       <div class="hero-grid-bg"></div>
-      
-      <!-- Subtle branching grid lines and tech bubbles -->
-      <div class="hero-branching-grid">
-        <svg class="branching-svg" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 150 120 L 250 200 L 250 320 M 250 200 L 380 150" stroke="rgba(138, 143, 152, 0.12)" stroke-width="1.5" stroke-linecap="round" />
-          <path d="M 1050 120 L 950 200 L 950 320 M 950 200 L 820 150" stroke="rgba(138, 143, 152, 0.12)" stroke-width="1.5" stroke-linecap="round" />
-        </svg>
-        
-        <!-- AWS node -->
-        <div class="tech-bubble aws-bubble" title="AWS">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tech-icon">
-            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-          </svg>
-        </div>
-        
-        <!-- GCP node -->
-        <div class="tech-bubble gcp-bubble" title="Google Cloud">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tech-icon">
-            <rect x="2" y="2" width="20" height="8" rx="2" />
-            <rect x="2" y="14" width="20" height="8" rx="2" />
-          </svg>
-        </div>
-        
-        <!-- Vue node -->
-        <div class="tech-bubble vue-bubble" title="Vue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="tech-icon">
-            <path d="M12 21L20 5H15L12 11L9 5H4L12 21Z" />
-          </svg>
-        </div>
-        
-        <!-- Angular node -->
-        <div class="tech-bubble angular-bubble" title="Angular">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tech-icon">
-            <path d="M12 2L2 5l1.5 12 8.5 5 8.5-5L22 5L12 2z M12 6l5 9.5h-2.5L12 10.5l-2.5 5H7L12 6z" />
-          </svg>
-        </div>
-      </div>
 
       <div class="content-container">
+        <!-- Hero Typography & Layout (Top Half) -->
         <div class="hero-content-centered">
           <h1 class="hero-title animate-reveal">
             Find your next
@@ -107,82 +73,99 @@
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 2">
               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 3">
             </span>
-            top 1% <br><span class="dynamic-typing-text" id="dynamic-typing-text">Backend Engineer</span><span class="typing-cursor">|</span>
+            top 1% <br><span class="dynamic-typing-text" id="dynamic-typing-text">Backend Engineer</span>
           </h1>
           <p class="hero-subtitle animate-reveal-delay-1">
             Hire engineers the way you ship software — fast, tested, and ready to deploy.
           </p>
+        </div>
+      </div>
 
-          <!-- Centerpiece: Glowing 3D purple 4-point star hovering over isometric podium -->
-          <div class="hero-centerpiece animate-reveal-delay-2">
-            <div class="podium-wrapper">
-              <!-- Isometric Podium SVG -->
-              <svg class="podium-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Top Isometric Face -->
-                <polygon points="100,20 180,60 100,100 20,60" fill="#E2E8F0" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1.5" />
-                <polygon points="100,24 172,60 100,96 28,60" fill="#F8FAFC" />
-                <!-- Front Left Face -->
-                <polygon points="20,60 100,100 100,118 20,78" fill="#CBD5E1" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1" />
-                <!-- Front Right Face -->
-                <polygon points="100,100 180,60 180,78 100,118" fill="#E2E8F0" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1" />
-                <!-- Inner glow accent -->
-                <ellipse cx="100" cy="60" rx="35" ry="18" fill="url(#podium-inner-glow)" opacity="0.4" />
-                <defs>
-                  <radialGradient id="podium-inner-glow" cx="100" cy="60" r="35" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="1" />
-                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
-                  </radialGradient>
-                </defs>
+      <!-- 3D Centerpiece & Isometric Floor (Bottom Half) -->
+      <div class="hero-floor-container animate-reveal-delay-2">
+        <div class="hero-floor-plane">
+          <!-- Branching pathways SVG -->
+          <svg class="floor-pathways-svg" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="rgba(139, 92, 246, 0.25)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="var(--color-blue-electric)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 16" class="flowing-path" />
+          </svg>
+          
+          <!-- Tech Stack & Avatar Nodes (laying flat on isometric floor) -->
+          <!-- AWS Node -->
+          <div class="floor-node node-aws" style="top: 375px; left: 75px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="node-icon"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <!-- Python Node -->
+          <div class="floor-node node-python" style="top: 175px; left: 225px;">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="node-icon"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m0 2c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8"/></svg>
+          </div>
+          <!-- JS Node -->
+          <div class="floor-node node-js" style="top: 225px; left: 375px;">
+            <span class="node-text">JS</span>
+          </div>
+          <!-- Google Cloud Node -->
+          <div class="floor-node node-gcp" style="top: 575px; left: 525px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="node-icon"><rect x="2" y="2" width="20" height="8" rx="2" /><rect x="2" y="14" width="20" height="8" rx="2" /></svg>
+          </div>
+          <!-- Angular Node -->
+          <div class="floor-node node-angular" style="top: 375px; right: 75px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="node-icon"><path d="M12 2L2 5l1.5 12 8.5 5 8.5-5L22 5L12 2z M12 6l5 9.5h-2.5L12 10.5l-2.5 5H7L12 6z" /></svg>
+          </div>
+          
+          <!-- Avatar Nodes -->
+          <div class="floor-node node-avatar-1" style="top: 375px; left: 225px;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar 1">
+          </div>
+          <div class="floor-node node-avatar-2" style="top: 675px; left: 375px;">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar 2">
+          </div>
+          <div class="floor-node node-avatar-3" style="top: 375px; left: 525px;">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar 3">
+          </div>
+        </div>
+
+        <!-- Centerpiece: Standing Upright Pedestal & Star -->
+        <div class="floor-centerpiece">
+          <div class="podium-3d-container">
+            <!-- Stacked disc cylindrical pedestal SVG -->
+            <svg class="pedestal-3d-svg" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Bottom Disc -->
+              <path d="M 20 120 L 20 135 A 80 25 0 0 0 180 135 L 180 120 Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1" />
+              <path d="M 20 120 A 80 25 0 0 0 180 120 L 180 135 A 80 25 0 0 1 20 135 Z" fill="#E2E8F0" />
+              <ellipse cx="100" cy="120" rx="80" ry="25" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1.5" />
+
+              <!-- Middle Disc -->
+              <path d="M 35 90 L 35 102 A 65 20 0 0 0 165 102 L 165 90 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1" />
+              <path d="M 35 90 A 65 20 0 0 0 165 90 L 165 102 A 65 20 0 0 1 35 102 Z" fill="#CBD5E1" />
+              <ellipse cx="100" cy="90" rx="65" ry="20" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
+
+              <!-- Top Disc -->
+              <path d="M 50 60 L 50 70 A 50 16 0 0 0 150 70 L 150 60 Z" fill="#5B21B6" stroke="#4C1D95" stroke-width="1" />
+              <path d="M 50 60 A 50 16 0 0 0 150 60 L 150 70 A 50 16 0 0 1 50 70 Z" fill="#7C3AED" />
+              <ellipse cx="100" cy="60" rx="50" ry="16" fill="#A78BFA" stroke="#7C3AED" stroke-width="1.5" />
+              <ellipse cx="100" cy="60" rx="35" ry="11" fill="#5B21B6" opacity="0.35" />
+            </svg>
+            
+            <!-- Hovering Star -->
+            <div class="hovering-star-3d">
+              <svg class="star-3d-svg-new" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="40,5 40,40 52,28" fill="#E879F9" />
+                <polygon points="40,5 40,40 28,28" fill="#D946EF" />
+                <polygon points="40,75 40,40 52,52" fill="#A21CAF" />
+                <polygon points="40,75 40,40 28,52" fill="#C084FC" />
+                <polygon points="75,40 40,40 52,28" fill="#D946EF" />
+                <polygon points="75,40 40,40 52,52" fill="#A21CAF" />
+                <polygon points="5,40 40,40 28,28" fill="#E879F9" />
+                <polygon points="5,40 40,40 28,52" fill="#C084FC" />
+                <circle cx="40" cy="40" r="4" fill="#FFFFFF" />
               </svg>
-              
-              <!-- Glowing 3D 4-point star hovering above -->
-              <div class="star-3d-wrapper">
-                <svg class="star-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Top Face -->
-                  <polygon points="50,10 50,50 65,35" fill="#D8B4FE" />
-                  <polygon points="50,10 50,50 35,35" fill="#A855F7" />
-                  <!-- Bottom Face -->
-                  <polygon points="50,90 50,50 65,65" fill="#7C3AED" />
-                  <polygon points="50,90 50,50 35,65" fill="#9333EA" />
-                  <!-- Right Face -->
-                  <polygon points="90,50 50,50 65,35" fill="#A855F7" />
-                  <polygon points="90,50 50,50 65,65" fill="#7C3AED" />
-                  <!-- Left Face -->
-                  <polygon points="10,50 50,50 35,35" fill="#D8B4FE" />
-                  <polygon points="10,50 50,50 35,65" fill="#9333EA" />
-                  <!-- Outer Glow -->
-                  <circle cx="50" cy="50" r="35" fill="url(#star-glow)" opacity="0.3" pointer-events="none" />
-                  <defs>
-                    <radialGradient id="star-glow" cx="50" cy="50" r="35" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stop-color="#A855F7" stop-opacity="1" />
-                      <stop offset="100%" stop-color="#A855F7" stop-opacity="0" />
-                    </radialGradient>
-                  </defs>
-                </svg>
-              </div>
             </div>
           </div>
-
-          <div class="hero-actions animate-reveal-delay-3">
-            <a href="#contact" class="btn btn-primary">Schedule a Strategy Call <span class="arrow-icon">→</span></a>
-            <a href="#careers" class="btn btn-outline">Explore Open Roles</a>
-          </div>
         </div>
       </div>
 
-      <!-- Sliding Matched Candidate Cards Container (bottom right) -->
-      <div class="matched-cards-widget" id="matched-cards-widget">
-        <div class="matched-card" id="matched-card-node">
-          <div class="matched-avatar-col">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar" class="matched-avatar" id="matched-avatar">
-          </div>
-          <div class="matched-info-col">
-            <div class="matched-status">Candidate matched</div>
-            <div class="matched-name" id="matched-name">Alice Miller</div>
-            <div class="matched-role" id="matched-role">Backend Engineer</div>
-          </div>
-        </div>
-      </div>
+      <!-- Feed Container for Bottom Right Candidate Cards -->
+      <div class="matched-feed-container" id="matched-feed-container"></div>
     </section>
 
     <!-- 4.3 Trusted-By / Logo Marquee -->
