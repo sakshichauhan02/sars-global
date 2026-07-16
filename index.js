@@ -374,8 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const dynamicTextEl = document.getElementById('dynamic-typing-text');
   if (dynamicTextEl) {
     const roles = [
-      'Backend Engineer',
       'Frontend Engineer',
+      'Backend Engineer',
       'AI Engineer',
       'Data Engineer',
       'Full Stack Engineer'
@@ -383,13 +383,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleIndex = 0;
 
     const cycleRole = () => {
-      // Fade out rapidly
       dynamicTextEl.style.opacity = 0;
 
       setTimeout(() => {
         roleIndex = (roleIndex + 1) % roles.length;
         dynamicTextEl.textContent = roles[roleIndex];
-        // Fade back in
         dynamicTextEl.style.opacity = 1;
       }, 150);
     };
@@ -398,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     11. Matched Candidate Card Stacker Feed Loop
+     11. Matched Candidate Card Stacker Feed Loop (Exactly 3 cards stack)
      ========================================================================== */
   const feedContainer = document.getElementById('matched-feed-container');
   if (feedContainer) {
@@ -409,37 +407,34 @@ document.addEventListener('DOMContentLoaded', () => {
         avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Sarah Jenkins',
-        role: 'AI Scientist',
+        name: 'Elena Rostova',
+        role: 'AI Engineer',
         avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'David Mercer',
-        role: 'Backend Developer',
+        name: 'Marcus Chen',
+        role: 'Frontend Engineer',
         avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Priya Nair',
-        role: 'Product Manager',
+        name: 'Alice Miller',
+        role: 'Backend Engineer',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80'
       },
       {
-        name: 'Alex Rodriguez',
-        role: 'Security Architect',
+        name: 'David Kim',
+        role: 'Data Engineer',
         avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=80&h=80&q=80'
       }
     ];
 
     let candidateIndex = 0;
 
-    const pushFeedCard = () => {
-      const candidate = candidatesList[candidateIndex];
-
-      // Create card node
+    const createCardNode = (candidate) => {
       const card = document.createElement('div');
       card.className = 'matched-feed-card';
       card.innerHTML = `
-        <div class="feed-card-badge">Candidate matched</div>
+        <div class="feed-card-badge">CANDIDATE MATCHED</div>
         <div class="feed-card-body">
           <img src="${candidate.avatar}" class="feed-card-avatar" alt="${candidate.name}">
           <div class="feed-card-info">
@@ -448,32 +443,44 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
       `;
+      return card;
+    };
 
-      // Prepend to display reverse chronological order where new pushes older ones up
+    // Pre-populate with 3 initial cards
+    for (let i = 0; i < 3; i++) {
+      const card = createCardNode(candidatesList[candidateIndex]);
+      feedContainer.appendChild(card);
+      card.classList.add('slide-in');
+      candidateIndex = (candidateIndex + 1) % candidatesList.length;
+    }
+
+    const pushFeedCard = () => {
+      const candidate = candidatesList[candidateIndex];
+      const card = createCardNode(candidate);
+
+      // Prepend so that the new card enters at the bottom, pushing older cards up
       feedContainer.appendChild(card);
 
-      // Slide in next frame
       requestAnimationFrame(() => {
         card.classList.add('slide-in');
       });
 
-      // Maintain max count of 3 cards in view feed
+      // Maintain exactly 3 active cards in the stack feed: remove the top one
       const activeCards = feedContainer.querySelectorAll('.matched-feed-card');
       if (activeCards.length > 3) {
-        const oldestCard = activeCards[0];
-        oldestCard.style.transform = 'translateY(-120px) scale(0.85)';
-        oldestCard.style.opacity = '0';
+        const topCard = activeCards[0];
+        topCard.style.transform = 'translateY(-120px) scale(0.85)';
+        topCard.style.opacity = '0';
         
         setTimeout(() => {
-          oldestCard.remove();
+          topCard.remove();
         }, 600);
       }
 
       candidateIndex = (candidateIndex + 1) % candidatesList.length;
     };
 
-    // Cycle candidates feed stack
-    setTimeout(pushFeedCard, 1000);
+    // Cycle candidate card every 3.5 seconds
     setInterval(pushFeedCard, 3500);
   }
 });

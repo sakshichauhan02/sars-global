@@ -21,7 +21,7 @@
         <svg class="logo-diamond-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" xmlns="http://www.w3.org/2000/svg">
           <polygon points="12,2 22,12 12,22 2,12" />
         </svg>
-        <span class="logo-emb">EMB</span><span class="logo-talent">Talent</span>
+        <span class="logo-sars">SARS</span><span class="logo-talent">Talent</span>
       </a>
       <nav class="nav-desktop">
         <a href="#why-us" class="nav-link">Why Us</a>
@@ -34,16 +34,11 @@
       </nav>
       <div class="nav-right-group">
         <a href="#contact" class="btn-book-call">Book a call</a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Overlay Menu -->
+  <!-- Mobile Overlay Menu (unused but kept for structural alignment) -->
   <div class="mobile-menu-overlay" id="mobile-menu-overlay">
     <nav class="nav-mobile">
       <a href="#why-us" class="mobile-nav-link">Why Us</a>
@@ -73,7 +68,7 @@
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 2">
               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80" alt="Candidate 3">
             </span>
-            top 1% <br><span class="dynamic-typing-text" id="dynamic-typing-text">Backend Engineer</span>
+            top 1% <br><span class="dynamic-typing-text" id="dynamic-typing-text">Frontend Engineer</span>
           </h1>
           <p class="hero-subtitle animate-reveal-delay-1">
             Hire engineers the way you ship software — fast, tested, and ready to deploy.
@@ -84,10 +79,10 @@
       <!-- 3D Centerpiece & Isometric Floor (Bottom Half) -->
       <div class="hero-floor-container animate-reveal-delay-2">
         <div class="hero-floor-plane">
-          <!-- Branching pathways SVG -->
+          <!-- Branching pathways SVG (straight blue lines) -->
           <svg class="floor-pathways-svg" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="rgba(139, 92, 246, 0.25)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="var(--color-blue-electric)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 16" class="flowing-path" />
+            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="rgba(59, 130, 246, 0.25)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 14" class="flowing-path" />
           </svg>
           
           <!-- Tech Stack & Avatar Nodes (laying flat on isometric floor) -->
@@ -124,10 +119,10 @@
           </div>
         </div>
 
-        <!-- Centerpiece: Standing Upright Pedestal & Star -->
+        <!-- Centerpiece: Standing Upright White/Gray Pedestal & Blue Star -->
         <div class="floor-centerpiece">
           <div class="podium-3d-container">
-            <!-- Stacked disc cylindrical pedestal SVG -->
+            <!-- 3 stacked white/gray discs cylindrical pedestal SVG -->
             <svg class="pedestal-3d-svg" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Bottom Disc -->
               <path d="M 20 120 L 20 135 A 80 25 0 0 0 180 135 L 180 120 Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1" />
@@ -140,23 +135,24 @@
               <ellipse cx="100" cy="90" rx="65" ry="20" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
 
               <!-- Top Disc -->
-              <path d="M 50 60 L 50 70 A 50 16 0 0 0 150 70 L 150 60 Z" fill="#5B21B6" stroke="#4C1D95" stroke-width="1" />
-              <path d="M 50 60 A 50 16 0 0 0 150 60 L 150 70 A 50 16 0 0 1 50 70 Z" fill="#7C3AED" />
-              <ellipse cx="100" cy="60" rx="50" ry="16" fill="#A78BFA" stroke="#7C3AED" stroke-width="1.5" />
-              <ellipse cx="100" cy="60" rx="35" ry="11" fill="#5B21B6" opacity="0.35" />
+              <path d="M 50 60 L 50 70 A 50 16 0 0 0 150 70 L 150 60 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1" />
+              <path d="M 50 60 A 50 16 0 0 0 150 60 L 150 70 A 50 16 0 0 1 50 70 Z" fill="#CBD5E1" />
+              <ellipse cx="100" cy="60" rx="50" ry="16" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5" />
+              <ellipse cx="100" cy="60" rx="35" ry="11" fill="#3B82F6" opacity="0.12" />
             </svg>
             
             <!-- Hovering Star -->
             <div class="hovering-star-3d">
               <svg class="star-3d-svg-new" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="40,5 40,40 52,28" fill="#E879F9" />
-                <polygon points="40,5 40,40 28,28" fill="#D946EF" />
-                <polygon points="40,75 40,40 52,52" fill="#A21CAF" />
-                <polygon points="40,75 40,40 28,52" fill="#C084FC" />
-                <polygon points="75,40 40,40 52,28" fill="#D946EF" />
-                <polygon points="75,40 40,40 52,52" fill="#A21CAF" />
-                <polygon points="5,40 40,40 28,28" fill="#E879F9" />
-                <polygon points="5,40 40,40 28,52" fill="#C084FC" />
+                <!-- Glossy, glowing 3D blue 4-point star -->
+                <polygon points="40,5 40,40 52,28" fill="#60A5FA" />
+                <polygon points="40,5 40,40 28,28" fill="#3B82F6" />
+                <polygon points="40,75 40,40 52,52" fill="#1D4ED8" />
+                <polygon points="40,75 40,40 28,52" fill="#2563EB" />
+                <polygon points="75,40 40,40 52,28" fill="#3B82F6" />
+                <polygon points="75,40 40,40 52,52" fill="#1D4ED8" />
+                <polygon points="5,40 40,40 28,28" fill="#60A5FA" />
+                <polygon points="5,40 40,40 28,52" fill="#2563EB" />
                 <circle cx="40" cy="40" r="4" fill="#FFFFFF" />
               </svg>
             </div>
@@ -164,7 +160,7 @@
         </div>
       </div>
 
-      <!-- Feed Container for Bottom Right Candidate Cards -->
+      <!-- Feed Container for Middle Right Candidate Cards -->
       <div class="matched-feed-container" id="matched-feed-container"></div>
     </section>
 
