@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

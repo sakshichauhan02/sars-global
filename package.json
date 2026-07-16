@@ -1,0 +1,12 @@
+{
+  "name": "sars-global",
+  "version": "1.0.0",
+  "description": "SARS Global Homepage - Talent, Technology & Security Solutions",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve . -l 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
