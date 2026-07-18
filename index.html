@@ -58,6 +58,12 @@
   <main>
     <!-- 4.2 Hero Section -->
     <section class="hero-section" id="hero">
+      <!-- Background Video -->
+      <video class="hero-video-bg" autoplay loop muted playsinline>
+        <source src="only_need_the_background_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-video-overlay"></div>
       <div class="hero-bg-glow"></div>
       <div class="hero-grid-bg"></div>
 
@@ -81,85 +87,6 @@
 
       <!-- 3D Centerpiece & Isometric Floor (Bottom Half) -->
       <div class="hero-floor-container animate-reveal-delay-2">
-        <div class="hero-floor-plane">
-          <!-- Branching pathways SVG -->
-          <svg class="floor-pathways-svg" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="rgba(139, 92, 246, 0.25)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M 100 400 L 400 400 L 400 700 M 400 400 L 700 400 M 250 400 L 250 200 M 550 400 L 550 600 M 400 250 L 400 400" stroke="var(--color-blue-electric)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 16" class="flowing-path" />
-          </svg>
-          
-          <!-- Tech Stack & Avatar Nodes (laying flat on isometric floor) -->
-          <!-- AWS Node -->
-          <div class="floor-node node-aws" style="top: 375px; left: 75px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="node-icon"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          </div>
-          <!-- Python Node -->
-          <div class="floor-node node-python" style="top: 175px; left: 225px;">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="node-icon"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m0 2c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8"/></svg>
-          </div>
-          <!-- JS Node -->
-          <div class="floor-node node-js" style="top: 225px; left: 375px;">
-            <span class="node-text">JS</span>
-          </div>
-          <!-- Google Cloud Node -->
-          <div class="floor-node node-gcp" style="top: 575px; left: 525px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="node-icon"><rect x="2" y="2" width="20" height="8" rx="2" /><rect x="2" y="14" width="20" height="8" rx="2" /></svg>
-          </div>
-          <!-- Angular Node -->
-          <div class="floor-node node-angular" style="top: 375px; right: 75px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="node-icon"><path d="M12 2L2 5l1.5 12 8.5 5 8.5-5L22 5L12 2z M12 6l5 9.5h-2.5L12 10.5l-2.5 5H7L12 6z" /></svg>
-          </div>
-          
-          <!-- Avatar Nodes -->
-          <div class="floor-node node-avatar-1" style="top: 375px; left: 225px;">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar 1">
-          </div>
-          <div class="floor-node node-avatar-2" style="top: 675px; left: 375px;">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar 2">
-          </div>
-          <div class="floor-node node-avatar-3" style="top: 375px; left: 525px;">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=60&h=60&q=80" alt="Avatar 3">
-          </div>
-        </div>
-
-        <!-- Centerpiece: Standing Upright Pedestal & Star -->
-        <div class="floor-centerpiece">
-          <div class="podium-3d-container">
-            <!-- Stacked disc cylindrical pedestal SVG -->
-            <svg class="pedestal-3d-svg" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Bottom Disc -->
-              <path d="M 20 120 L 20 135 A 80 25 0 0 0 180 135 L 180 120 Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1" />
-              <path d="M 20 120 A 80 25 0 0 0 180 120 L 180 135 A 80 25 0 0 1 20 135 Z" fill="#E2E8F0" />
-              <ellipse cx="100" cy="120" rx="80" ry="25" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1.5" />
-
-              <!-- Middle Disc -->
-              <path d="M 35 90 L 35 102 A 65 20 0 0 0 165 102 L 165 90 Z" fill="#94A3B8" stroke="#64748B" stroke-width="1" />
-              <path d="M 35 90 A 65 20 0 0 0 165 90 L 165 102 A 65 20 0 0 1 35 102 Z" fill="#CBD5E1" />
-              <ellipse cx="100" cy="90" rx="65" ry="20" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
-
-              <!-- Top Disc -->
-              <path d="M 50 60 L 50 70 A 50 16 0 0 0 150 70 L 150 60 Z" fill="#1D4ED8" stroke="#1E3A8A" stroke-width="1" />
-              <path d="M 50 60 A 50 16 0 0 0 150 60 L 150 70 A 50 16 0 0 1 50 70 Z" fill="#2563EB" />
-              <ellipse cx="100" cy="60" rx="50" ry="16" fill="#93C5FD" stroke="#2563EB" stroke-width="1.5" />
-              <ellipse cx="100" cy="60" rx="35" ry="11" fill="#1D4ED8" opacity="0.35" />
-            </svg>
-            
-            <!-- Hovering Star -->
-            <div class="hovering-star-3d">
-              <svg class="star-3d-svg-new" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="40,5 40,40 52,28" fill="#60A5FA" />
-                <polygon points="40,5 40,40 28,28" fill="#3B82F6" />
-                <polygon points="40,75 40,40 52,52" fill="#1D4ED8" />
-                <polygon points="40,75 40,40 28,52" fill="#93C5FD" />
-                <polygon points="75,40 40,40 52,28" fill="#3B82F6" />
-                <polygon points="75,40 40,40 52,52" fill="#1D4ED8" />
-                <polygon points="5,40 40,40 28,28" fill="#60A5FA" />
-                <polygon points="5,40 40,40 28,52" fill="#93C5FD" />
-                <circle cx="40" cy="40" r="4" fill="#FFFFFF" />
-              </svg>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Feed Container for Bottom Right Candidate Cards -->

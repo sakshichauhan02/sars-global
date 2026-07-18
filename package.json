@@ -4,7 +4,7 @@
   "description": "SARS Global Homepage - Talent, Technology & Security Solutions",
   "main": "index.html",
   "scripts": {
-    "dev": "npx -y serve . -l 3000"
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
